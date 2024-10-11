@@ -1,0 +1,29 @@
+Delta CSV Import Template,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+"Please create your own copy of this file, edit it and download it as a CSV",,,,,,,,,,,,,
+"When you upload the CSV file, make sure the instruction text is not present, or it will fail!",,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Description of fields:,,,,,,,,,,,,,
+Date,,"Date and time of the transaction, including the timezone. If you don't specify a timezone, the timezone will default to your local timezone. Accepted formats are ISO 8601 and RFC 2822",,,,,,,,,,,
+Way,,"The type of the transaction. For trades you can specify 'BUY' or 'SELL', and for crypto transfers you can specify 'DEPOSIT', 'WITHDRAW' or 'TRANSFER'. Use 'DIVIDEND' for cash dividends from equities",,,,,,,,,,,
+Base amount,,"The amount bought, sold, deposited, withdrawn or transferred (excluding fees)",,,,,,,,,,,
+Base currency (name),,"The ticker code of the asset traded or transferred. You can optionally specify the name of the asset in brackets. For stock dividends, this is the asset you received dividends for",,,,,,,,,,,
+Base type,,"The type of asset. It can be one of: CRYPTO, STOCK, FUND, INDEX, COMMODITY, FOREX, FIAT. We do not support NFTs via CSV import at the moment",,,,,,,,,,,
+Quote amount,,"The total price bought or sold for BUY or SELL transactions respectively. For equity dividends, it is the total cash dividend received",,,,,,,,,,,
+Quote currency,,The ticker code of the asset currency of the quote amount,,,,,,,,,,,
+Exchange,,"The exchange where the trade (or deposit/withdraw) was made. Optional for trades. When not specified, we'll use the Global Average for crypto and the appropriate exchange for non-crypto assets",,,,,,,,,,,
+Sent/Received from,,"Only used for CRYPTO DEPOSIT, WITHDRAW or TRANSFER. You can specify the name of an exchange, 'MY_WALLET', 'OTHER_WALLET', 'AIRDROP', 'MINING', 'FORK', 'DIVIDENDS' or 'OTHER'",,,,,,,,,,,
+Sent to,,"Only used for CRYPTO DEPOSIT, WITHDRAW, or TRANSFER. You can specify the name of an exchange, 'MY_WALLET', 'OTHER_WALLET', 'OTHER'",,,,,,,,,,,
+Fee amount,,The fee that was paid on the trade or transfer (optional),,,,,,,,,,,
+Fee currency (name),,The ticker code of the currency of the fee. You can optionally specify name of the fee currency in brackets,,,,,,,,,,,
+Broker,,"For STOCK, FUND, INDEX, COMMODITY or FIAT transactions you can enter the name of your broker like eToro , Robinhood, Interactive Brokers, etc. (optional)",,,,,,,,,,,
+Notes,,Any notes you want for this transaction (optional),,,,,,,,,,,
+----------------- delete above instructions before uploading -----------------,,,,,,,,,,,,,
+Date,Way,Base amount,Base currency (name),Base type,Quote amount,Quote currency,Exchange,Sent/Received from,Sent to,Fee amount,Fee currency (name),Broker,Notes
+2023-06-02 16:06:47-04:00,BUY,10,ETH,CRYPTO,0.6,BTC,Binance,,,0.1,BNB,,Example of a crypto buy of 10 ETH for a total of 0.6 BTC and a fee of 0.1 BNB
+2023-06-01 19:31:54-04:00,SELL,100,SOL (Solana),CRYPTO,0.88,ETH,Binance,,,,,,Example of a crypto sell. Name specified in brackets so we know SOL is Solana and not Sola
+2023-05-26 02:08:15-04:00,WITHDRAW,0.1,DOT (Polkadot),CRYPTO,,,,MY_WALLET,OTHER,0.001,DOT (Polkadot),,"Example of a withdrawal. Asset name can be specified in brackets for base, quote or fee currency"
+2023-05-09 14:51:31-04:00,DEPOSIT,0.001,BTC,CRYPTO,,,,DIVIDENDS,MY_WALLET,,,,Example of a deposit from staking / dividends for crypto
+2023-05-08 15:00:00-04:00,BUY,5,TSLA,STOCK,1250,USD,Nasdaq,,,,,eToro,Example of a stock purchase
+2023-05-08 15:00:00-04:00,DEPOSIT,5000,USD,FIAT,,,,,,,,eToro,Example of a fiat deposit
+2023-05-08 15:00:00-04:00,DIVIDEND,,AAPL,STOCK,2.5,USD,Nasdaq,,,0.5,USD,eToro,Example of a dividend with a fee for AAPL
